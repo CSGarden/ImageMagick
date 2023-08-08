@@ -16,6 +16,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
@@ -29,16 +30,83 @@
                 Margin="10,0"
                 VerticalAlignment="Center"
                 FontSize="16"
+                Style="{StaticResource TextBlockDefaultInfo}"
+                Text="当前图片的格式:" />
+            <hc:TextBox
+                Width="60"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                BorderBrush="LightBlue"
+                FontSize="12"
+                Style="{StaticResource TextBoxExtend}"
+                Text="{Binding PresentFormat}" />
+            <TextBlock
+                Margin="10,0"
+                VerticalAlignment="Center"
+                FontSize="16"
                 Style="{StaticResource TextBlockDefaultSuccess}"
                 Text="To转换的格式" />
             <ComboBox
                 Margin="10,0"
                 Padding="30,0"
+                DisplayMemberPath="Name"
                 ItemsSource="{Binding ImageFormats}"
                 SelectedIndex="{Binding SelectedIndex}"
                 Style="{StaticResource ComboBoxBaseStyle}" />
         </StackPanel>
-        <Grid Grid.Row="1">
+        <StackPanel
+            Grid.Row="1"
+            Margin="10"
+            Orientation="Horizontal">
+            <TextBlock
+                Margin="10,0"
+                VerticalAlignment="Center"
+                FontSize="13"
+                Style="{StaticResource TextBlockDefaultInfo}"
+                Text="Width:" />
+            <hc:TextBox
+                Width="60"
+                Style="{StaticResource InputElementBaseStyle}"
+                Text="{Binding NewImageWidth}" />
+            <TextBlock
+                Margin="10,0"
+                VerticalAlignment="Center"
+                FontSize="13"
+                Style="{StaticResource TextBlockDefaultInfo}"
+                Text="Height:" />
+            <hc:TextBox
+                Width="60"
+                Style="{StaticResource InputElementBaseStyle}"
+                Text="{Binding NewImageHeight}" />
+            <TextBlock
+                Margin="10,0"
+                VerticalAlignment="Center"
+                FontSize="13"
+                Style="{StaticResource TextBlockDefaultInfo}"
+                Text="Angle:" />
+            <hc:TextBox
+                Width="60"
+                Style="{StaticResource InputElementBaseStyle}"
+                Text="{Binding Angle}" />
+            <TextBlock
+                Margin="10,0,0,0"
+                FontSize="16"
+                Style="{StaticResource TextBlockDefaultInfo}"
+                Text="滤镜选择" />
+            <ComboBox
+                Margin="10,0"
+                Padding="30,0"
+                ItemsSource="{Binding ImageFilters}"
+                SelectedIndex="{Binding SelectedFilterIndex}"
+                Style="{StaticResource ComboBox.Small}" />
+
+            <Button
+                Margin="10,0"
+                Command="{Binding ImageFilterTypeCommand}"
+                Content="ToNewImage"
+                Style="{StaticResource ButtonInfo}" />
+        </StackPanel>
+        <Grid Grid.Row="2">
             <Image
                 x:Name="imge"
                 HorizontalAlignment="Stretch"
@@ -52,7 +120,7 @@
                 Visibility="{Binding TextVisibility}" />
         </Grid>
         <StackPanel
-            Grid.Row="2"
+            Grid.Row="3"
             Margin="10"
             HorizontalAlignment="Right"
             Orientation="Horizontal">
