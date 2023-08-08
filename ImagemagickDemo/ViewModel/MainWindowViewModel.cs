@@ -88,9 +88,13 @@ namespace ImagemagickDemo.ViewModel {
             ImageFormats.Add("Jpg");
             ImageFormats.Add("Png");
             ImageFormats.Add("Gif");
-            ImageFormats.Add("Wbmp");
+            ImageFormats.Add("Bmp");
+            ImageFormats.Add("Svg");
+            ImageFormats.Add("Tga");
+            ImageFormats.Add("Eps");
+            //ImageFormats.Add("Wbmp");
             ImageFormats.Add("WebP");
-            ImageFormats.Add("Heic");
+            //ImageFormats.Add("Heic");
             ImageFormats.Add("Tiff");
             ImageFormats.Add("Avif");
             ImageFormats.Add("Psd");
